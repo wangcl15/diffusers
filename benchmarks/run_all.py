@@ -23,6 +23,8 @@ def run_command(command: List[str], return_stdout=False):
     """
     try:
         output = subprocess.check_output(command, stderr=subprocess.STDOUT)
+        print(f"{command}: \n{output}")
+        print(f"{'-' * 40}")
         if return_stdout:
             if hasattr(output, "decode"):
                 output = output.decode("utf-8")
